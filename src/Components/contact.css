@@ -77,11 +77,12 @@
 
 @media only screen and (max-width: 600px) {
   .Contact {
-    max-width: 80%;
+    overflow: hidden;
+    max-width: 100%;
     margin: 0 auto;
     border-radius: 20px 20px 4px 4px;
     min-height: 300px;
-    padding: 20px;
+    padding: 0px;
     align-items: center;
   }
   .ContactContent {
@@ -94,8 +95,10 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
+    padding: 0;
   }
   .ContactInputs h2 {
+    margin-top: 60px;
     font-weight: bolder;
     font-size: 26px;
     align-self: center;
@@ -107,7 +110,19 @@
 
   .social {
     row-gap: 30px;
-
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: flex-start;
     margin: 80px auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .item a {
+    font-size: 4vw;
+  }
+  #phone {
+    align-self: flex-end !important;
+    color: aliceblue;
   }
 }

@@ -76,7 +76,7 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
-              <div className="item">
+              <div id="phone" className="item">
                 <div className="logo">
                   <img
                     width="64"
@@ -86,7 +86,7 @@ export default function Contact() {
                   />
                 </div>
                 <div className="socialname">
-                  <a href="">+212 637492006</a>
+                  <a href="tel:0637492006">+212 637492006</a>
                 </div>
               </div>
             </div>

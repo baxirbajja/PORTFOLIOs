@@ -70,17 +70,24 @@
   margin: 130px auto 0px;
 }
 @media only screen and (max-width: 600px) {
+  .home {
+    width: 100%;
+    overflow: hidden;
+  }
   .title {
     margin: 220px auto 0;
     text-align: center;
+    font-size: 46px;
   }
 
   .desc {
+    font-size: 15px;
     max-width: 90%;
   }
 
   .works {
     cursor: pointer;
+    font-size: 15px;
     margin: 80px auto;
   }
 
