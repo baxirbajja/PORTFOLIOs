@@ -1,5 +1,6 @@
+import React from 'react';
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -172,8 +173,29 @@ const projects = [
 ];
 
 const Works = () => {
+  const sectionRef = React.useRef(null);
+  const isInView = useInView(sectionRef, { margin: "-20%" });
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
-    <WorksSection>
+    <WorksSection
+      ref={sectionRef}
+      as={motion.section}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
       <SectionTitle
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -196,7 +218,17 @@ const Works = () => {
       >
         {projects.map((project) => (
           <SwiperSlide key={project.title}>
-            <ProjectSlide>
+            <ProjectSlide
+              as={motion.div}
+              variants={{
+                hidden: { opacity: 0, scale: 0.8 },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  transition: { duration: 0.5 }
+                }
+              }}
+            >
               <div style={{ position: 'relative', height: '100%' }}>
                 <ProjectImage src={project.image} alt={project.title} />
                 <ProjectOverlay className="project-overlay">

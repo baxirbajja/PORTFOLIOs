@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaLinkedin, FaInstagram, FaMapMarkerAlt } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 const ContactSection = styled.section`
@@ -133,6 +133,30 @@ const NotificationMessage = styled.div`
 `;
 
 const Contact = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { margin: "-20%" });
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -203,7 +227,14 @@ const Contact = () => {
   };
 
   return (
-    <ContactSection id="contact">
+    <ContactSection 
+      id="contact"
+      ref={sectionRef}
+      as={motion.section}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
       <SectionTitle
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -214,6 +245,7 @@ const Contact = () => {
       <ContactContainer>
         <ContactInfo>
           <InfoItem
+            variants={itemVariants}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -259,11 +291,12 @@ const Contact = () => {
           </InfoItem>
         </ContactInfo>
 
-        <ContactForm
+        <ContactForm 
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           onSubmit={handleSubmit}
+          variants={containerVariants}
         >
           {notification && (
             <NotificationMessage type={notification.type}>
@@ -277,6 +310,8 @@ const Contact = () => {
             value={formData.name}
             onChange={handleChange}
             required
+            as={motion.input}
+            variants={itemVariants}
           />
           <Input
             type="email"
@@ -285,6 +320,8 @@ const Contact = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            as={motion.input}
+            variants={itemVariants}
           />
           <Input
             type="tel"
@@ -292,6 +329,8 @@ const Contact = () => {
             placeholder="Your Phone Number"
             value={formData.phone}
             onChange={handleChange}
+            as={motion.input}
+            variants={itemVariants}
           />
           <TextArea
             name="message"
@@ -299,8 +338,17 @@ const Contact = () => {
             value={formData.message}
             onChange={handleChange}
             required
+            as={motion.textarea}
+            variants={itemVariants}
           />
-          <SubmitButton type="submit" disabled={isLoading}>
+          <SubmitButton 
+            type="submit" 
+            disabled={isLoading}
+            as={motion.button}
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             {isLoading ? 'Sending...' : 'Send message'}
           </SubmitButton>
         </ContactForm>

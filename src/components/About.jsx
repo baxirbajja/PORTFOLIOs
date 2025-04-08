@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import React from 'react';
 
 const AboutSection = styled.section`
   padding: ${props => props.theme.spacing.xl} 0;
@@ -59,8 +60,28 @@ const Description = styled(motion.p)`
 `;
 
 const About = () => {
+  const sectionRef = React.useRef(null);
+  const isInView = useInView(sectionRef, { margin: "-20%" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
-    <AboutSection>
+    <AboutSection
+      ref={sectionRef}
+      as={motion.section}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
       <ProfileImage
         src="/images/me.png"
         alt="Bachir BAJJA"
