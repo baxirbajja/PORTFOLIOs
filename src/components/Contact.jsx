@@ -184,7 +184,7 @@ const Contact = () => {
         from_name: formData.name,
         from_email: formData.email,
         from_phone: formData.phone,
-        message: formData.message,
+        message: `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`,
         to_name: 'Bachir BAJJA'
       };
 

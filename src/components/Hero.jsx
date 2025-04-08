@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaInstagram, FaGithub, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import styled from '@emotion/styled';
+import { FaArrowDown } from 'react-icons/fa';
 
 const HeroContainer = styled.div`
   min-height: 100vh;
@@ -77,13 +78,17 @@ const SocialLinks = styled.div`
   gap: 1.5rem;
 
   @media (max-width: 768px) {
-    position: relative;
-    left: auto;
+    position: fixed;
+    left: 0;
+    bottom: 2rem;
     top: auto;
     transform: none;
     flex-direction: row;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 0;
+    padding: 0;
+    width: 100%;
+    z-index: 100;
   }
 `;
 
@@ -110,6 +115,34 @@ const FloatingElements = styled.div`
     top: auto;
     transform: none;
     margin-top: 2rem;
+  }
+`;
+
+const ScrollIndicator = styled(motion.div)`
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: ${props => props.theme.colors.primary};
+  font-size: 2rem;
+  cursor: pointer;
+
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(-50%);
+    }
+    50% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+    100% {
+      transform: translateY(0) translateX(-50%);
+    }
+  }
+
+  animation: float 2s ease-in-out infinite;
+
+  &:hover {
+    color: ${props => props.theme.colors.text};
   }
 `;
 
@@ -165,6 +198,15 @@ const Hero = () => {
           <FaLinkedin />
         </SocialIcon>
       </SocialLinks>
+
+      <ScrollIndicator
+        onClick={() => window.scrollTo({
+          top: window.innerHeight,
+          behavior: 'smooth'
+        })}
+      >
+        <FaArrowDown />
+      </ScrollIndicator>
     </HeroContainer>
   );
 };

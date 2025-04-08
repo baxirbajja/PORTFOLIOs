@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { motion, useInView } from 'framer-motion';
 import React from 'react';
-import { FaBrain, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaPython, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaLinux, FaWindows, FaCode } from 'react-icons/fa';
+import { FaLaptopCode, FaBootstrap, FaBrain, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaPython, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaLinux, FaWindows, FaCode, FaInternetExplorer, FaLaravel,FaFigma,FaDatabase,FaCloud } from 'react-icons/fa';
 
 const SkillsSection = styled.section`
   padding: ${props => props.theme.spacing.xl} 0;
@@ -140,24 +140,24 @@ const Skills = () => {
       { icon: FaBrain, name: 'Learning Never Ends ....' },
     ],
     frameworks: [
-      { icon: FaCode, name: 'Bootstrap' },
+      { icon: FaBootstrap, name: 'Bootstrap' },
       { icon: FaCode, name: 'Tailwind CSS' },
       { icon: FaReact, name: 'React' },
-      { icon: FaCode, name: 'Laravel' },
+      { icon: FaLaravel, name: 'Laravel' },
       { icon: FaNodeJs, name: 'Node.js' },
-      { icon: FaCode, name: 'Express.js' },
+      { icon: FaInternetExplorer, name: 'Express.js' },
       { icon: FaCode, name: 'Next.js' },
     ],
     tools: [
-      { icon: FaCode, name: 'VS Code' },
-      { icon: FaCode, name: 'Figma' },
+      { icon: FaLaptopCode, name: 'VS Code' },
+      { icon: FaFigma, name: 'Figma' },
       { icon: FaGitAlt, name: 'Git' },
       { icon: FaGithub, name: 'GitHub' },
-      { icon: FaCode, name: 'MySQL' },
-      { icon: FaCode, name: 'MongoDB' },
+      { icon: FaDatabase, name: 'MySQL' },
+      { icon: FaDatabase, name: 'MongoDB' },
       { icon: FaLinux, name: 'Linux' },
       { icon: FaWindows, name: 'Windows' },
-      { icon: FaCode, name: 'Google Cloud' },
+      { icon: FaCloud, name: 'Google Cloud' },
     ]
   };
 

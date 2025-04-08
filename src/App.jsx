@@ -13,6 +13,22 @@ const AppContainer = styled.div`
   min-height: 100vh;
   color: ${props => props.theme.colors.text};
   font-family: ${props => props.theme.fonts.body};
+  position: relative;
+  padding-bottom: 60px;
+`;
+
+const Footer = styled.footer`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.textSecondary};
+  font-size: 0.9rem;
+  border-top: 1px solid ${props => props.theme.colors.border};
 `;
 
 const App = () => {
@@ -24,6 +40,9 @@ const App = () => {
         <Skills />
         <Works />
         <Contact />
+        <Footer>
+          © {new Date().getFullYear()} Bachir BAJJA. All rights reserved.
+        </Footer>
       </AppContainer>
     </ThemeProvider>
   );

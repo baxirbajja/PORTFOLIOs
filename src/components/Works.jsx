@@ -31,6 +31,8 @@ const StyledSwiper = styled(Swiper)`
 
   @media (max-width: 768px) {
     height: 50vh;
+    --swiper-pagination-bullet-horizontal-gap: 4px;
+    --swiper-pagination-bullet-size: 10px;
   }
 
   .swiper-button-next,
@@ -51,6 +53,25 @@ const StyledSwiper = styled(Swiper)`
 
   .swiper-pagination-bullet-active {
     background: ${props => props.theme.colors.primary};
+  }
+
+  @media (max-width: 768px) {
+    .swiper-slide {
+      width: 85%;
+      margin-right: 15px;
+    }
+    
+    .project-overlay {
+      padding: 1rem;
+    }
+    
+    .project-title {
+      font-size: 1.2rem;
+    }
+    
+    .project-description {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -184,6 +205,28 @@ const Works = () => {
       transition: {
         duration: 0.8,
         staggerChildren: 0.2
+      }
+    }
+  };
+
+  const swiperParams = {
+    modules: [Autoplay, EffectFade, Navigation, Pagination],
+    spaceBetween: 30,
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      clickable: true,
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 1.5,
+        spaceBetween: 40,
       }
     }
   };
