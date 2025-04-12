@@ -185,7 +185,7 @@ const Hero = () => {
       </ContentWrapper>
 
       <SocialLinks>
-        <SocialIcon href="https://www.instagram.com/bachir_bajja/" target="_blank" rel="noopener noreferrer">
+        <SocialIcon href="https://www.instagram.com/baxir_bj/" target="_blank" rel="noopener noreferrer">
           <FaInstagram />
         </SocialIcon>
         <SocialIcon href="https://github.com/baxirbajja" target="_blank" rel="noopener noreferrer">
