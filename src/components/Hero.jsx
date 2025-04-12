@@ -194,7 +194,7 @@ const Hero = () => {
         <SocialIcon href="https://web.facebook.com/mohamed.e.bachir.3" target="_blank" rel="noopener noreferrer">
           <FaFacebook />
         </SocialIcon>
-        <SocialIcon href="https://www.linkedin.com/in/bachir-bajja-19b538249/" target="_blank" rel="noopener noreferrer">
+        <SocialIcon href="https://www.linkedin.com/in/mohamed-el-bachir-bajja-9b5005347/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </SocialIcon>
       </SocialLinks>
