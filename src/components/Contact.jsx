@@ -184,19 +184,22 @@ const Contact = () => {
         from_name: formData.name,
         from_email: formData.email,
         from_phone: formData.phone,
-        message: `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`,
-        to_name: 'Bachir BAJJA'
+        message: formData.message,
+        to_email: 'medbachirbajja@gmail.com',
+        to_name: 'Bachir BAJJA',
+        name: formData.name,
+        email:formData.email
       };
-
-      // Initialize EmailJS with your public key (do this in your main app file)
-      // emailjs.init('YOUR_PUBLIC_KEY');
       
+      // Send the contact form submission
       await emailjs.send(
-        'service_52f68om', // Replace with your EmailJS service ID from your EmailJS dashboard
-        'template_x5s1it5', // Replace with your EmailJS template ID from your EmailJS dashboard
+        'service_fspao18',
+        'template_f5c3ac2',
         templateParams,
-        'RM1sz94ruQRFcUUgP' // Replace with your EmailJS public key from your EmailJS dashboard
+        'LIBXiRF0SOZerJkaN'
       );
+
+   
       
       // Note: To get your credentials:
       // 1. Sign up at https://www.emailjs.com/
